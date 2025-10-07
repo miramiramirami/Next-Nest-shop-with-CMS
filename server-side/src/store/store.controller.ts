@@ -29,7 +29,7 @@ export class StoreController {
   ) {
     return this.storeService.getById(userId, storeId);
   }
-
+  q;
   @UsePipes(new ValidationPipe())
   @HttpCode(HttpStatus.CREATED)
   @Auth()

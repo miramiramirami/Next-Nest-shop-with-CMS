@@ -15,6 +15,8 @@ import {
 import { Form } from '@/components/ui/form-elements/Form'
 
 import styles from './Auth.module.scss'
+import { AuthFields } from './AuthFields'
+import { Socials } from './Social'
 import { useAuthForm } from './useAuthForm'
 
 export function Auth() {
@@ -27,7 +29,7 @@ export function Auth() {
 			<div className={styles.left}>
 				<Image
 					src='/images/auth.svg'
-					alt='auth'
+					alt='TeaShop auth'
 					width={100}
 					height={100}
 				/>
@@ -36,27 +38,33 @@ export function Auth() {
 				<Card className={styles.card}>
 					<CardHeader className={styles.header}>
 						<CardTitle>
-							{isReg ? 'Регистрация' : 'Авторизация'}
+							{isReg ? 'Регистрация' : 'Автороизация'}
 						</CardTitle>
 						<CardDescription>
-							Войдите или создайте аккаунт для покупок
+							Войдите или создайте учетную запись, чтобы оформлять
+							покупки!
 						</CardDescription>
-						<CardContent className={styles.content}>
-							<Form {...form}>
-								<form onSubmit={form.handleSubmit(onSubmit)}>
-									<Button disabled={isPending}>
-										Продолжить
-									</Button>
-								</form>
-							</Form>
-						</CardContent>
-						<CardFooter className={styles.footer}>
-							{isReg ? 'Уже есть аккаунт ?' : 'Еще нет аккаунта'}
-							<button onClick={() => setIsReg(!isReg)}>
-								{isReg ? 'Войти' : 'Создать'}
-							</button>
-						</CardFooter>
 					</CardHeader>
+					<CardContent className={styles.content}>
+						<Form {...form}>
+							<form onSubmit={form.handleSubmit(onSubmit)}>
+								<AuthFields
+									form={form}
+									isPending={isPending}
+									isReg={isReg}
+								/>
+
+								<Button disabled={isPending}>Продолжить</Button>
+							</form>
+						</Form>
+						<Socials />
+					</CardContent>
+					<CardFooter className={styles.footer}>
+						{isReg ? 'Уже есть аккаунт?' : 'Еще нет аккаунта?'}
+						<button onClick={() => setIsReg(!isReg)}>
+							{isReg ? 'Войти' : 'Создать'}
+						</button>
+					</CardFooter>
 				</Card>
 			</div>
 		</div>

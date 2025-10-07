@@ -19,11 +19,11 @@ export class ProductDto {
     message: 'Укажите хотя бы одну картинку',
     each: true,
   })
-  @ArrayMinSize(1, { message: 'Должна быть хотя бы одна картинка' })
-  @IsNotEmpty({
-    each: true,
-    message: 'Путь к картинке не может быть пустым',
-  })
+  // @ArrayMinSize(1, { message: 'Должна быть хотя бы одна картинка' })
+  // @IsNotEmpty({
+  //   each: true,
+  //   message: 'Путь к картинке не может быть пустым',
+  // })
   images: string[];
 
   @IsString({

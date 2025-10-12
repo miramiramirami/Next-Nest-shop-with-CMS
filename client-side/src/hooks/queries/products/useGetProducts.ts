@@ -18,5 +18,5 @@ export const useGetProducts = () => {
 			isLoading
 		}),
 		[products, isLoading]
-	)a
+	)
 }

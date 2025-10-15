@@ -1,0 +1,11 @@
+.wrapper {
+  @apply flex flex-col min-h-screen; // Используем min-h-screen вместо h-full
+
+  > .layout {
+    @apply flex-1 flex flex-col; // Добавляем flex-col
+
+    > main {
+      @apply mx-5 lg:mx-14 flex-1;
+    }
+  }
+}
